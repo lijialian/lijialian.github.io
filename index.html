@@ -54,7 +54,7 @@
 
 <p>示例：</p>
 
-<pre><code> return new MyClass(){
+<pre><code> new MyClass(){
    @Override
    public void method(){
        if(condition()){
@@ -137,9 +137,9 @@ aFoo.aStaticMethod(); // bad
 <h3>
 <a id="1212-类" class="anchor" href="#1212-%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.1.2 类</h3>
 
-<p>名词，采用驼峰命名法，尽量避免缩写，除非改缩写是众所周知的，</p>
+<p>采用驼峰命名法，尽量避免缩写，除非改缩写是众所周知的，</p>
 
-<p>比如HTML,URL,如果雷鸣城中包含单词缩写，则单词缩写的每个字母均应大写。</p>
+<p>比如HTML,URL,如果类名称中包含单词缩写，则单词缩写的每个字母均应大写。</p>
 
 <p>如：</p>
 
@@ -149,11 +149,9 @@ aFoo.aStaticMethod(); // bad
 
          Adapter类                Adapter 为后缀标识                     新闻详情适配器 NewDetailAdapter
 
-        解析类                    Hlr为后缀标识                          首页解析类HomePosterHlr
-
         公共方法类                Tools或Manager为后缀标识               线程池管理类：ThreadPoolManager
 
-        *数据库类                 以DBHelper后缀标识                     新闻数据库：NewDBHelper
+        *数据库类                 以DBHelper（database）后缀标识          新闻数据库：NewDBHelper(NewDatebase)
 
         Service类                 以Service为后缀标识                    时间服务TimeService
 
@@ -183,10 +181,11 @@ aFoo.aStaticMethod(); // bad
            getXX()                         返回某个值的方法，使用get为前缀标识
 
        processXX()                         对数据进行处理的方法，尽量使用process为前缀标识
+</code></pre>
 
-       displayXX()                         弹出提示框和提示信息，使用display为前缀标识
+<p>show()、displayXX()                         弹出提示框和提示信息，使用display(show)为前缀标识</p>
 
-          saveXX()                         保存数据相关的，使用sav为e前缀标识
+<pre><code>          saveXX()                         保存数据相关的，使用sav为e前缀标识
 
          resetXX()                         对数据重组的，使用reset前缀标识
 
@@ -200,7 +199,16 @@ aFoo.aStaticMethod(); // bad
 <h3>
 <a id="1215-变量" class="anchor" href="#1215-%E5%8F%98%E9%87%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.1.5 变量</h3>
 
-<p>采用小驼峰命名法。类中控件名称必须与xml局部id保持一致。</p>
+<p>采用小驼峰命名法。</p>
+
+<pre><code>  控件名称：Button btn_collection;
+
+  boolean类型变量名称：boolean is_collection;
+
+  普通变量名称：String strCollection;
+</code></pre>
+
+<p>类中控件名称必须与xml局部id保持一致。</p>
 
 <h3>
 <a id="1216-常量" class="anchor" href="#1216-%E5%B8%B8%E9%87%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.1.6 常量</h3>
@@ -225,10 +233,6 @@ aFoo.aStaticMethod(); // bad
                   def_search_cell        默认图片使用def_功能_说明
 
                  icon_more_help          图标图片使用icon_功能说明 或 ic功能_说明
-
-                  seg_list_line          具有分隔特征的图片使用seg_功能_说明
-
-                      sel_ok             选择图标使用sel_功能_说明
 </code></pre>
 
 <h3>
@@ -276,9 +280,7 @@ aFoo.aStaticMethod(); // bad
 
              zoom_enter           变形进入     
 
-               slide_in           滑动进入   
-
-        shrink_to_middle          中间缩小
+               slide_in           滑动进入 
 </code></pre>
 
 <h3>
