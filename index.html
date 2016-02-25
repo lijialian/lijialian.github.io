@@ -149,9 +149,9 @@ aFoo.aStaticMethod(); // bad
 
          Adapter类                Adapter 为后缀标识                     新闻详情适配器 NewDetailAdapter
 
-        公共方法类                Tools或Manager为后缀标识               线程池管理类：ThreadPoolManager
+        公共方法类                utils或helper为后缀标识                线程池管理类：ThreadPoolUtils
 
-        *数据库类                 以DBHelper（database）后缀标识          新闻数据库：NewDBHelper(NewDatebase)
+        *数据库类                 以DBHelper（database）后缀标识         新闻数据库：NewDBHelper(NewDatebase)
 
         Service类                 以Service为后缀标识                    时间服务TimeService
 
@@ -208,7 +208,7 @@ aFoo.aStaticMethod(); // bad
   普通变量名称：String strCollection;
 </code></pre>
 
-<p>类中控件名称必须与xml局部id保持一致。</p>
+<p>类中控件名称必须与xml局部id保持一致。所有控件名称都以下划线小写字母连接，其余命名名称一律采用小驼峰命名法，布尔类型一is/has开头。</p>
 
 <h3>
 <a id="1216-常量" class="anchor" href="#1216-%E5%B8%B8%E9%87%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.1.6 常量</h3>
@@ -244,7 +244,7 @@ aFoo.aStaticMethod(); // bad
 
         2）fragment布局文件命名： frag_文件名
 
-        3）对话框布局文件名：alert_文件名 或 dialog_文件名
+        3）对话框布局文件名：alert_文件名
 
         4) Item布局文件：item_文件名
 
@@ -252,9 +252,7 @@ aFoo.aStaticMethod(); // bad
 
         6）Popwindow文件：pop_文件名
 
-        7）Service文件： service_文件名
-
-        8）List文件：list_文件名
+        7）List文件：list_文件名
 </code></pre>
 
 <h3>
@@ -278,7 +276,7 @@ aFoo.aStaticMethod(); // bad
 
       slide_in_from_top           从头部滑动进入
 
-             zoom_enter           变形进入     
+                zoom_in           变形进入     
 
                slide_in           滑动进入 
 </code></pre>
@@ -291,7 +289,7 @@ aFoo.aStaticMethod(); // bad
 <p>注意：页面控件名称应该和控件Id名保持一致</p>
 
 <h3>
-<a id="1221-layout中的id命名" class="anchor" href="#1221-layout%E4%B8%AD%E7%9A%84id%E5%91%BD%E5%90%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.2.1 layout中的id命名</h3>
+<a id="1221-layout中的布局命名" class="anchor" href="#1221-layout%E4%B8%AD%E7%9A%84%E5%B8%83%E5%B1%80%E5%91%BD%E5%90%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.2.1 layout中的布局命名</h3>
 
 <p>命名模式为：view缩写_模块名称——view的逻辑名称</p>
 
@@ -309,7 +307,7 @@ aFoo.aStaticMethod(); // bad
 
     ImageButton    imgBtn
 
-      ImageView    mgView 或则 iv
+      ImageView    imgView
 
        CheckBox     chk
 
