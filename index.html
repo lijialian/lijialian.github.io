@@ -1,31 +1,22 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Lijialian.GitHub.io by lijialian</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Lijialian.GitHub.io</h1>
-        <p>android代码规范文档</p>
-        <p class="view"><a href="https://github.com/lijialian">View the Project on GitHub <small>lijialian</small></a></p>
-        <ul>
-          <li class="single"><a href="https://github.com/lijialian/lijialian.github.io">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
+    <section class="page-header">
+      <h1 class="project-name">Lijialian.GitHub.io</h1>
+      <h2 class="project-tagline">android代码规范文档</h2>
+    </section>
+
+    <section class="main-content">
+      <h1>
 <a id="11java规范" class="anchor" href="#11java%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1Java规范</h1>
 
 <h2>
@@ -34,7 +25,7 @@
 <h2>
 <a id="112import语句" class="anchor" href="#112import%E8%AF%AD%E5%8F%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1.2Import语句</h2>
 
-<p>不要出现类似这样的import语句：import java.utils.*。import语句不换行</p>
+<p>不要出现类似这样的import语句：import java.utils.*。</p>
 
 <h2>
 <a id="1113非空块k--r-风格" class="anchor" href="#1113%E9%9D%9E%E7%A9%BA%E5%9D%97k--r-%E9%A3%8E%E6%A0%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1.1.3非空块：K &amp; R 风格</h2>
@@ -72,12 +63,14 @@
 
 <p>不要使用组合声明，比如：int a,b;</p>
 
+<p>正确使用例如：int a; int b;</p>
+
 <h2>
 <a id="115注释" class="anchor" href="#115%E6%B3%A8%E9%87%8A" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1.5注释</h2>
 
 <p>1）方法名注释 ：/**
-                  <em>方法介绍
-                  *</em>/</p>
+                  *方法介绍
+                  */</p>
 
 <p>2）变量名注释： //变量名介绍</p>
 
@@ -87,7 +80,7 @@
 
             *代码介绍
 
-            **/
+            */
 </code></pre>
 
 <h2>
@@ -122,11 +115,11 @@ aFoo.aStaticMethod(); // bad
 
     com.xx.应用名称缩写.adapter                               页面用到的Adapter类
 
-    com.xx.应用名称缩写.bean(model/data)                      实体类对象
+    com.xx.应用名称缩写.model                                 实体类对象
 
     com.xx.应用名称缩写.view（com.xx.应用名称.ui）            自定义的View类等
 
-    com.xx.应用名称缩写.utils（tools）                        公共工具类
+    com.xx.应用名称缩写.util（tool）                        公共工具类
 
     com.xx.应用名称缩写.service                               Service服务类
 
@@ -139,6 +132,8 @@ aFoo.aStaticMethod(); // bad
     *com.xx.应用名称缩写.api  
 
     com.xx.应用名称缩写.dateBase                             数据库相关类
+
+   *com.xx.应用名称缩写.interface                            接口相关类
 </code></pre>
 
 <h3>
@@ -158,11 +153,11 @@ aFoo.aStaticMethod(); // bad
 
         公共方法类                utils或helper为后缀标识                线程池管理类：ThreadPoolUtils
 
-        *数据库类                 以DBHelper（database）后缀标识         新闻数据库：NewDBHelper(NewDatebase)
+        *数据库类                 以DB后缀标识                           新闻数据库：NewDB(NewDatebase)
 
         Service类                 以Service为后缀标识                    时间服务TimeService
 
-        BroadcastReceive类        以Broadcast为后缀标识                  时间通知TimeBroadcast
+        BroadcastReceiver类        以Broadcast为后缀标识                  时间通知TimeBroadcast
 
        *ContentProvider           以Provider为后缀标识  
 
@@ -187,10 +182,7 @@ aFoo.aStaticMethod(); // bad
 
            getXX()                         返回某个值的方法，使用get为前缀标识
 
-       processXX()                         对数据进行处理的方法，尽量使用process为前缀标识
-
-       displayXX() 
-            show()                        弹出提示框和提示信息，使用display(show)为前缀标识
+            show()                        弹出提示框和提示信息，使用show为前缀标识
 
           saveXX()                         保存数据相关的，使用sav为e前缀标识
 
@@ -212,7 +204,7 @@ aFoo.aStaticMethod(); // bad
 
   boolean类型变量名称：boolean isCollection;
 
-  普通变量名称：String strCollection;
+  普通变量名称：String collectionName;
 </code></pre>
 
 <p>类中控件名称必须与xml局部id保持一致。所有控件名称都以下划线小写字母连接，其余命名名称一律采用小驼峰命名法，布尔类型一is/has开头。</p>
@@ -243,11 +235,7 @@ aFoo.aStaticMethod(); // bad
 
                    selector_             状态（控件）功能名
 
-                   shape_                 圆角（圆弧）方向
-
-                    bg_                   填充色
-
-                   stroke_                线条色
+                 shape_bg_stroke         圆角（圆弧）方向_填充色_线条色
 </code></pre>
 
 <h3>
@@ -257,7 +245,7 @@ aFoo.aStaticMethod(); // bad
 
 <pre><code>        1) activity布局文件命名： activity_文件名
 
-        2）fragment布局文件命名： frag_文件名
+        2）fragment布局文件命名： fragment_文件名
 
         3）对话框布局文件名：dialog_文件名
 
@@ -268,6 +256,8 @@ aFoo.aStaticMethod(); // bad
         6）Popwindow文件：pop_文件名
 
         7）List文件：list_文件名
+
+        8) 其余类文件：layout_文件名
 </code></pre>
 
 <h3>
@@ -314,7 +304,7 @@ aFoo.aStaticMethod(); // bad
 
      LayoutView     layout_
 
-   RelativeView     layout_
+ RelativeLayout     layout_
 
        TextView     tv
 
@@ -365,12 +355,14 @@ aFoo.aStaticMethod(); // bad
 <a id="125-异常捕捉" class="anchor" href="#125-%E5%BC%82%E5%B8%B8%E6%8D%95%E6%8D%89" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.5 异常捕捉</h3>
 
 <p>尽量捕捉具体的异常，如IOExceptioin等。</p>
-      </section>
-    </div>
-    <footer>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+      <footer class="site-footer">
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
