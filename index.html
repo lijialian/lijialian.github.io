@@ -366,6 +366,151 @@ aFoo.aStaticMethod(); // bad
 <a id="125-异常捕捉" class="anchor" href="#125-%E5%BC%82%E5%B8%B8%E6%8D%95%E6%8D%89" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2.5 异常捕捉</h3>
 
 <p>尽量捕捉具体的异常。</p>
+
+<h2>
+<a id="13-butterknife使用" class="anchor" href="#13-butterknife%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3 Butterknife使用</h2>
+
+<h3>
+<a id="131-支持-activity-中的-view-注入" class="anchor" href="#131-%E6%94%AF%E6%8C%81-activity-%E4%B8%AD%E7%9A%84-view-%E6%B3%A8%E5%85%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3.1 支持 Activity 中的 View 注入</h3>
+
+<pre><code>       class ExampleActivity extends Activity {
+
+         @InjectView(R.id.title) TextView title;
+
+         @InjectView(R.id.subtitle) TextView subtitle;
+
+         @InjectView(R.id.footer) TextView footer;
+
+         @Override public void onCreate(Bundle savedInstanceState) {
+           super.onCreate(savedInstanceState);
+
+           setContentView(R.layout.simple_activity);
+
+           ButterKnife.inject(this);
+
+           // TODO Use "injected" views...
+
+         }
+
+       }
+</code></pre>
+
+<h3>
+<a id="132支持-view-中的-view-注入" class="anchor" href="#132%E6%94%AF%E6%8C%81-view-%E4%B8%AD%E7%9A%84-view-%E6%B3%A8%E5%85%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3.2.支持 View 中的 View 注入</h3>
+
+<pre><code>      //fragment中的使用
+
+      public class FancyFragment extends Fragment {
+
+        @InjectView(R.id.button1) Button button1;
+
+        @InjectView(R.id.button2) Button button2;
+
+        @Override 
+
+        View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+          View view = inflater.inflate(R.layout.fancy_fragment, container, false);
+
+          ButterKnife.inject(this, view);
+
+          // TODO Use "injected" views...
+
+          return view;
+         }
+
+       }
+
+   //adapter中的使用
+
+    public class MyAdapter extends BaseAdapter {
+
+     @Override
+
+    public View getView(int position, View view, ViewGroup parent) {
+
+    ViewHolder holder;
+
+    if (view != null) {
+
+    holder = (ViewHolder) view.getTag();
+
+    } else {
+
+    view = inflater.inflate(R.layout.whatever, parent, false);
+
+    holder = new ViewHolder(view);
+
+    view.setTag(holder);
+
+   }
+
+    holder.name.setText("John Doe");
+
+    // etc...
+
+    return convertView;
+
+  }
+
+   static class ViewHolder {
+
+    @InjectView(R.id.title) TextView name;
+
+    @InjectView(R.id.job_title) TextView jobTitle;
+
+    public ViewHolder(View view) {
+
+    ButterKnife.inject(this, view);
+
+    }
+
+   }
+
+  }
+</code></pre>
+
+<h3>
+<a id="133支持-view-事件回调函数注入" class="anchor" href="#133%E6%94%AF%E6%8C%81-view-%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%B3%A8%E5%85%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3.3.支持 View 事件回调函数注入</h3>
+
+<pre><code>      // 带有 Button 参数
+
+      @OnClick(R.id.submit)
+
+      public void sayHi(Button button) {
+
+        button.setText("Hello!");
+
+      }
+
+     // 不带参数
+
+     @OnClick(R.id.submit)
+
+     public void submit() {
+
+    // TODO submit data to server...
+
+     }
+
+    // 同时注入多个 View 事件  
+
+    @OnClick({ R.id.door1, R.id.door2, R.id.door3 })
+
+    public void pickDoor(DoorView door) {
+
+      if (door.hasPrizeBehind()) {
+
+         Toast.makeText(this, "You win!", LENGTH_SHORT).show();
+
+     } else {
+
+         Toast.makeText(this, "Try again", LENGTH_SHORT).show();
+
+     }
+
+   }
+</code></pre>
       </section>
     </div>
     <footer>
