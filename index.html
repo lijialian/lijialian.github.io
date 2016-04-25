@@ -367,8 +367,8 @@ aFoo.aStaticMethod(); // bad
 
 <p>尽量捕捉具体的异常。</p>
 
-<h2>
-<a id="13-butterknife使用" class="anchor" href="#13-butterknife%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3 Butterknife使用</h2>
+<h1>
+<a id="13-butterknife使用" class="anchor" href="#13-butterknife%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3 Butterknife使用</h1>
 
 <h3>
 <a id="131-支持-activity-中的-view-注入" class="anchor" href="#131-%E6%94%AF%E6%8C%81-activity-%E4%B8%AD%E7%9A%84-view-%E6%B3%A8%E5%85%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3.1 支持 Activity 中的 View 注入</h3>
@@ -510,6 +510,109 @@ aFoo.aStaticMethod(); // bad
      }
 
    }
+</code></pre>
+
+<h1>
+<a id="14-360行工具类-说明" class="anchor" href="#14-360%E8%A1%8C%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%AF%B4%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4 360行工具类 说明</h1>
+
+<h2>
+<a id="141-timeutils时间转换工具类" class="anchor" href="#141-timeutils%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4.1 TimeUtils(时间转换工具类)</h2>
+
+<pre><code> 1）获取时间(时分秒 ex: 12:20:32)
+
+ getTimeHMS(int second)
+
+ 2）获取时间(分秒 ex: 20:32)
+
+ getTimeMS(int second)
+
+ 3）获取时间(分秒毫秒 ex: 20:32.33)
+
+ getTimeMSMs(long ms)
+
+ 4）当前时间是否在输入时间之间
+
+ isBetweenTime(String startTime, String endTime)
+</code></pre>
+
+<h2>
+<a id="142-sizeutils-尺寸工具类" class="anchor" href="#142-sizeutils-%E5%B0%BA%E5%AF%B8%E5%B7%A5%E5%85%B7%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4.2 SizeUtils （尺寸工具类）</h2>
+
+<pre><code> 1）获取屏幕密度
+
+ getDensity()
+
+ 2)dp转px
+
+ dpToPx(int dp)
+
+ 3)px换dp
+
+ pxToDp(int px)
+
+ 4)获取状态栏高度
+
+ getStatusBarHeight()
+
+ 5)获取适配大小
+
+ getAutoSize(Context context, int size)
+
+ 6）透明通知栏标题间距
+
+ setTitleViewTopPadding(View view)
+</code></pre>
+
+<h2>
+<a id="143-netutils网络工具类" class="anchor" href="#143-netutils%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4.3 NetUtils(网络工具类)</h2>
+
+<pre><code> 1）获取网络信息
+
+ getNetworkInfo(Context context)
+
+ 2）判断是否有网络
+
+ isNetWorkAvailable(Context context)
+
+3)判断是否是Wifi
+
+isNetWorkWifi(Context context)
+</code></pre>
+
+<h2>
+<a id="144-localactivitymgr管理activity" class="anchor" href="#144-localactivitymgr%E7%AE%A1%E7%90%86activity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4.4 LocalActivityMgr(管理Activity)</h2>
+
+<pre><code>1）放入Activity
+
+ pushActivity(Activity activity)
+
+2）移除某个Activity
+
+removeActivity(Activity activity)
+
+3）获取Top Activity
+
+getTopActivity()
+
+4）关闭最顶层Activity
+
+popActivity()
+
+5）获取集合中Activity数量
+
+getActivityCount()
+
+6)关闭所有Activity
+
+clearActivity()
+
+7)获取指定下标的Activity
+
+getActivityByIndex(int index)
+
+8）获取Activity通过ClassName
+
+findActivity(String className)
 </code></pre>
       </section>
     </div>
